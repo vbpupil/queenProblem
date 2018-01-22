@@ -7,8 +7,10 @@
  * @license   Proprietary See LICENSE.md
  */
 
-namespace vbpupil;
+namespace vbpupil\Logic;
 
+
+use vbpupil\Components\Board;
 
 class Moves
 {

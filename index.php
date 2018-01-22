@@ -4,17 +4,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 use vbpupil\BoardFactory;
-use vbpupil\BoardPlotter;
-use vbpupil\Moves;
+use vbpupil\Logic\BoardPlotter;
 
 include __DIR__ . '/vendor/autoload.php';
 
 $boardWidth = 5;
 
 
-$plotter = new BoardPlotter($boardWidth, 6);
+$plotter = new BoardPlotter($boardWidth, 25);
 dump($plotter);
-
 
 
 $board = new BoardFactory($boardWidth);

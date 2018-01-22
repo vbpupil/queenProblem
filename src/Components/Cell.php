@@ -7,7 +7,8 @@
  * @license   Proprietary See LICENSE.md
  */
 
-namespace vbpupil;
+
+namespace vbpupil\Components;
 
 
 class Cell

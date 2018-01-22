@@ -9,8 +9,10 @@
 
 namespace vbpupil;
 
-
+use vbpupil\Components\Board;
 use Exception;
+use vbpupil\Components\Cell;
+use vbpupil\Components\Row;
 
 class BoardFactory
 {
