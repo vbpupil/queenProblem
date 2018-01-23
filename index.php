@@ -11,7 +11,7 @@ include __DIR__ . '/vendor/autoload.php';
 $boardWidth = 5;
 
 
-$plotter = new BoardPlotter($boardWidth, 25);
+$plotter = new BoardPlotter($boardWidth, 17);
 dump($plotter);
 
 

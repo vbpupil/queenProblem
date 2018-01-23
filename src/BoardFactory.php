@@ -44,7 +44,7 @@ class BoardFactory
 
     public function generateRows()
     {
-        $cellPos = 0;
+        $boardPos = 0;
 
         for ($i = 0; $i <= $this->width - 1; $i++) {
             /*SET THE ROWS*/
@@ -53,14 +53,19 @@ class BoardFactory
                 ($i)
             );
 
+            $rowPos = 0;
             /*SET THE CELLS*/
             for ($j = 1; $j <= $this->width; $j++) {
+                if($rowPos == $this->width){
+                    $rowPos = 0;
+                }
                 $this->rows[$i]->cells[] = new Cell(
-                    ($i),
-                    ($cellPos)
+                    ($rowPos),
+                    ($boardPos)
                 );
 
-                $cellPos++;
+                $boardPos++;
+                $rowPos++;
             }
         }
     }
