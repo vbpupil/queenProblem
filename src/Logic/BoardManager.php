@@ -9,8 +9,6 @@
 namespace vbpupil\Logic;
 
 use vbpupil\Components\Board;
-use vbpupil\Components\Cell;
-
 
 class BoardManager
 {

@@ -87,6 +87,4 @@ class Cell
     {
         $this->boardPosition = $boardPosition;
     }
-
-
 }

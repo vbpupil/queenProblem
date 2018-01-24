@@ -1,19 +1,12 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 use vbpupil\BoardFactory;
 use vbpupil\Logic\BoardManager;
-use vbpupil\Logic\QueenBoardMapper;
 
 include __DIR__ . '/vendor/autoload.php';
 
 $debug = false;
 $errors = false;
 $boardWidth = 9;
-
-
 
 try {
     $board = new BoardManager(
