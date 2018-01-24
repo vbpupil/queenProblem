@@ -3,7 +3,7 @@
  *  Board.php Class
  *
  * @author    Dean Haines
- * @copyright , 2018, UK
+
  * @license   Proprietary See LICENSE.md
  */
 
@@ -12,15 +12,22 @@ namespace vbpupil\Components;
 
 use Exception;
 
+/**
+ * Class Board
+ */
 class Board
 {
     protected $width;
 
     public $rows = array();
 
+    /**
+     * Board constructor.
+     * @param $width
+     * @throws Exception
+     */
     public function __construct($width)
     {
-        echo ($width % 2);
         if (($width % 2) == 0) {
             throw new Exception('Board width must be an odd number.');
         }
@@ -28,6 +35,9 @@ class Board
         $this->width = $width;
     }
 
+    /**
+     * @param $rows
+     */
     public function setRows($rows)
     {
         $this->rows = $rows;
@@ -40,5 +50,14 @@ class Board
     {
         return $this->rows;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
 
 }

@@ -4,36 +4,36 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 use vbpupil\BoardFactory;
+use vbpupil\Logic\BoardManager;
 use vbpupil\Logic\QueenBoardMapper;
 
 include __DIR__ . '/vendor/autoload.php';
 
-$boardWidth = 5;
+$debug = false;
+$errors = false;
+$boardWidth = 9;
 
 
-$plotter = new QueenBoardMapper($boardWidth, 17);
-dump($plotter);
 
+try {
+    $board = new BoardManager(
+        (new BoardFactory($boardWidth))
+            ->getBoard()
+    );
+}catch(Exception $e){
+    $errors = true;
+    echo $e->getMessage();
+}
 
-$board = new BoardFactory($boardWidth);
-$board = $board->getBoard();
+if ($debug == true) {
+    dump($board);
+}
 
-
-//foreach ($board->getRows() as $row) {
-//    $move = new Moves($board);
-//    $row = $move->getRow();
-//}
-
-dump($board);
-
-
-?>
+if($errors == false) {
+    ?>
 
     <style>
         .board {
-            border: solid 1px black;
-            width: 30%;
-            height: 60%;
 
         }
 
@@ -43,41 +43,46 @@ dump($board);
 
         .cell {
             background: black;
-            width: <?= 100 / $boardWidth ?>%;
-            height: <?= 100 / $boardWidth ?>%;
+            width: 30px;
+            height: 30px;
             display: inline-block;
+            border: solid .5px black;
         }
 
-        .odd{
+        .odd {
             background: black;
         }
 
-        .even{
+        .even {
             background: white;
         }
 
-        .inactive{
+        .inactive {
             background: #ccc;
         }
 
-        .occupied{
+        .occupied {
             background: red;
         }
 
 
     </style>
-<?php
-echo '<div class="board">';
+    <?php
+    echo '<div class="board">';
 
-$cellCount = 0;
-$count = 0;
-foreach ($board->getRows() as $row) {
-    echo '<div class="row">';
-    foreach ($row->getRowCells() as $cell) {
-        echo '<div class="cell '. ($cellCount % 2 ? 'even' : 'odd') .' '.($cell->isActive() ? '' : 'inactive').' '.($cell->isOccupied() ? 'occupied' : '').'"></div>';
-        $cellCount++;
+    $cellCount = 0;
+    $count = 0;
+    foreach ($board->getRows() as $row) {
+        echo '<div class="row">';
+        foreach ($row->getRowCells() as $cell) {
+            echo '<div class="cell ' . ($cellCount % 2 ? 'even' : 'odd') . ' ' . ($cell->isActive() ? '' : 'inactive') . ' ' . ($cell->isOccupied() ? 'occupied' : '') . '"></div>';
+            $cellCount++;
+        }
+        echo '</div>';
     }
     echo '</div>';
+
+    echo "Board Width: {$boardWidth}<br>Total Number Of Cells: {$board->getBoardTotalNoCells()}<br>Occupied Cells: {$board->getOccupiedCount()}";
+
 }
-echo '</div>';
 ?>

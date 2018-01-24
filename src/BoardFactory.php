@@ -3,7 +3,7 @@
  *  BoardFactory.php Class
  *
  * @author    Dean Haines
- * @copyright , 2018, UK
+
  * @license   Proprietary See LICENSE.md
  */
 
@@ -33,7 +33,7 @@ class BoardFactory
         $this->width = $width;
 
         $this->initializeBoard();
-
+        return $this;
     }
 
     protected function initializeBoard()

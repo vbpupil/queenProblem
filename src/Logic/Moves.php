@@ -3,7 +3,7 @@
  *  Moves.php Class
  *
  * @author    Dean Haines
- * @copyright , 2018, UK
+
  * @license   Proprietary See LICENSE.md
  */
 
