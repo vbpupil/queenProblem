@@ -4,14 +4,14 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 use vbpupil\BoardFactory;
-use vbpupil\Logic\BoardPlotter;
+use vbpupil\Logic\QueenBoardMapper;
 
 include __DIR__ . '/vendor/autoload.php';
 
 $boardWidth = 5;
 
 
-$plotter = new BoardPlotter($boardWidth, 17);
+$plotter = new QueenBoardMapper($boardWidth, 17);
 dump($plotter);
 
 

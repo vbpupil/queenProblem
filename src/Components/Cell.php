@@ -1,9 +1,9 @@
 <?php
 /**
- * Freetimers Cell.php Class
+ *  Cell.php Class
  *
  * @author    Dean Haines
- * @copyright Freetimers Communications Ltd, 2018, UK
+ * @copyright , 2018, UK
  * @license   Proprietary See LICENSE.md
  */
 
